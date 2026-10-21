@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">فوج المستقبل دائرة بوقيرات ولاية مستغانم- الكشافة الإسلامية الجزائرية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --scout-green: #0a5c36;
+            --scout-gold: #e6a100;
+            --scout-dark: #1e293b;
+            --scout-light: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--scout-light);
+            color: var(--scout-dark);
+            line-height: 1.6;
+        }
+
+        /* فرض الأرقام بالصيغة اللاتينية/الغربية 123 */
+        input, select, textarea, .en-num {
+            font-family: Arial, 'Tajawal', sans-serif;
+        }
+
+        header {
+            background-color: var(--scout-green);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        header h1 {
+            font-size: 1.3rem;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .lang-btn {
+            background-color: var(--scout-gold);
+            color: var(--scout-dark);
+            border: none;
+            padding: 5px 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(10, 92, 54, 0.85), rgba(10, 92, 54, 0.85)), url('https://images.unsplash.com/photo-1517164850305-99a3e65bb47e?auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            background-color: var(--scout-gold);
+            color: var(--scout-dark);
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            color: var(--scout-green);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--scout-gold);
+            padding-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .documents-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .documents-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        footer {
+            background-color: var(--scout-green);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        @media print {
+            header, nav, .hero, footer, .btn, #about, #documents, .lang-btn {
+                display: none !important;
+            }
+            .container { max-width: 100%; margin: 0; padding: 0; }
+            .card { box-shadow: none; border: 1px solid #000; }
+        }
+
+        @media (max-width: 600px) {
+            .form-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر مع زر تغيير اللغة -->
+    <header>
+        <h1 id="navBrand">فوج المستقبل للكشافة</h1>
+        <div class="header-actions">
+            <nav>
+                <a href="#about" id="navAbout">عن الفوج</a> | 
+                <a href="#register" id="navRegister">الانتساب</a> | 
+                <a href="#documents" id="navDocs">الوثائق</a>
+            </nav>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English</button>
+        </div>
+    </header>
+
+    <!-- الواجهة الرئيسية -->
+    <section class="hero">
+        <h2 id="heroTitle">أهلاً بكم في فوج المستقبل للكشافة الإسلامية الجزائرية</h2>
+        <p id="heroSubtitle">نصنع أجيال الغد بلقرأن والعمل والقيادة</p>
+        <a href="#register" class="btn" id="heroBtn">سجّل ابنك الآن</a>
+    </section>
+
+    <div class="container">
+
+        <!-- عن الفوج -->
+        <section id="about" class="card">
+            <h3 id="aboutTitle">عن الفوج</h3>
+            <p id="aboutText">يسعى فوج المستقبل لتربية الناشئة والشباب تربية كشفية إسلامية صالحة من خلال أنشطة تربوية، مخيمات صيفية،قرأن كريم وورشات عمل تهدف لبناء الشخصية وتنمية الروح القيادية والعمل الجماعي.</p>
+        </section>
+
+        <!-- استمارة التسجيل -->
+        <section id="register" class="card">
+            <h3 id="formTitle">استمارة طلب الانتساب الأولية</h3>
+            
+            <!-- ربط كود مفتاح Web3Forms الخاص بك -->
+            <form action="https://api.web3forms.com/submit" method="POST" id="scoutForm">
+                <input type="hidden" name="access_key" value="ae1d5bed-e2f6-4f50-ba36-f5900c49411c">
+                <input type="hidden" name="subject" value="تسجيل كشاف جديد - فوج المستقبل">
+
+                <h4 style="margin: 1rem 0; color: #555;" id="scoutInfoHead">معلومات الكشاف (الطفل/الشاب):</h4>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="childName" id="lblChildName">الاسم واللقب</label>
+                        <input type="text" name="اسم_الطفل" id="childName" required placeholder="مثال: محمد بلقاسم">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthDate" id="lblBirthDate">تاريخ الميلاد (إدخال يدوي)</label>
+                        <input type="text" name="تاريخ_الميلاد" id="birthDate" required placeholder="15/05/2012">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="education" id="lblEducation">المستوى الدراسي</label>
+                        <input type="text" name="المستوى_الدراسي" id="education" required placeholder="السنة 4 ابتدائي">
+                    </div>
+                    <div class="form-group">
+                        <label for="health" id="lblHealth">ملاحظات صحية / حساسيات (إن وجدت)</label>
+                        <input type="text" name="الملاحظات_الصحية" id="health" placeholder="لا يوجد أو اذكر الحالة">
+                    </div>
+                </div>
+
+                <h4 style="margin: 1.5rem 0 1rem; color: #555;" id="parentInfoHead">معلومات ولي الأمر:</h4>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="parentName" id="lblParentName">اسم ولقب ولي الأمر</label>
+                        <input type="text" name="اسم_ولي_الأمر" id="parentName" required placeholder="مثال: أحمد بلقاسم">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" id="lblPhone">رقم الهاتف الأساسي</label>
+                        <input type="tel" name="رقم_الهاتف" id="phone" required placeholder="0612345678">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address" id="lblAddress">عنوان السكن / الحي</label>
+                    <input type="text" name="العنوان" id="address" required placeholder="اسم الحي أو الشارع">
+                </div>
+
+                <button type="submit" class="btn" id="submitBtn" style="width: 100%; margin-top: 1rem;">إرسال البيانات وطباعة الاستمارة</button>
+            </form>
+        </section>
+
+        <!-- الوثائق ومواعيد التسليم -->
+        <section id="documents" class="card">
+            <h3 id="docsTitle">الوثائق المطلوب تسليمها يدويًا</h3>
+            <p style="margin-bottom: 1rem;" id="docsSub">بعد ملء الاستمارة وإرسالها، يرجى تجهيز الملف الورقي التالي وتسليمه بمقر الفوج:</p>
+            <ul class="documents-list">
+                <li id="doc1">✓ استمارة التسجيل الإلكترونية (المطبوعة).</li>
+                <li id="doc2">✓ شهادة الميلاد الحديثة.</li>
+                <li id="doc3">✓ صور فورية شمسية (عدد 2).</li>
+                <li id="doc4">✓ شهادة طبية تثبت قدرة الطفل على ممارسة النشاط البدني.</li>
+                <li id="doc5">✓ تصريح شرفي موقع من ولي الأمر.</li>
+            </ul>
+
+            <h4 style="margin-top: 1.5rem; color: var(--scout-green);" id="scheduleHead">مواعيد استقبال الملفات:</h4>
+            <p id="locationText">📍 <strong>المقر:</strong> مقر فوج المستقبل</p>
+            <p id="timeText">⏰ <strong>الأوقات:</strong> كل يوم جمعة وسبت من الساعة 14:00 إلى 17:00</p>
+        </section>
+
+    </div>
+
+    <footer>
+        <p id="footerText">&copy; 2026 فوج المستقبل للكشافة الإسلامية الجزائرية - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <!-- سكربت التحكم باللغة والطباعة -->
+    <script>
+        let currentLang = 'ar';
+
+        const translations = {
+            ar: {
+                pageTitle: "فوج المستقبل - الكشافة الإسلامية الجزائرية",
+                navBrand: "فوج المستقبل للكشافة",
+                navAbout: "عن الفوج",
+                navRegister: "الانتساب",
+                navDocs: "الوثائق",
+                langBtn: "English",
+                heroTitle: "أهلاً بكم في فوج المستقبل للكشافة الإسلامية الجزائرية",
+                heroSubtitle: "نصنع أجيال الغد بالقيم والعمل والقيادة",
+                heroBtn: "سجّل ابنك الآن",
+                aboutTitle: "عن الفوج",
+                aboutText: "يسعى فوج المستقبل لتربية الناشئة والشباب تربية كشفية إسلامية صالحة من خلال أنشطة تربوية، مخيمات صيفية، وورشات عمل تهدف لبناء الشخصية وتنمية الروح القيادية والعمل الجماعي.",
+                formTitle: "استمارة طلب الانتساب الأولية",
+                scoutInfoHead: "معلومات الكشاف (الطفل/الشاب):",
+                lblChildName: "الاسم واللقب",
+                lblBirthDate: "تاريخ الميلاد (إدخال يدوي)",
+                lblEducation: "المستوى الدراسي",
+                lblHealth: "ملاحظات صحية / حساسيات (إن وجدت)",
+                parentInfoHead: "معلومات ولي الأمر:",
+                lblParentName: "اسم ولقب ولي الأمر",
+                lblPhone: "رقم الهاتف الأساسي",
+                lblAddress: "عنوان السكن / الحي",
+                submitBtn: "إرسال البيانات وطباعة الاستمارة",
+                docsTitle: "الوثائق المطلوب تسليمها يدويًا",
+                docsSub: "بعد ملء الاستمارة وإرسالها، يرجى تجهيز الملف الورقي التالي وتسليمه بمقر الفوج:",
+                doc1: "✓ استمارة التسجيل الإلكترونية (المطبوعة).",
+                doc2: "✓ شهادة الميلاد الحديثة.",
+                doc3: "✓ صور فورية شمسية (عدد 3).",
+                doc4: "✓ شهادة طبية تثبت قدرة الطفل على ممارسة النشاط البدني.",
+                doc5: "✓ تصريح شرفي موقع من ولي الأمر.",
+                scheduleHead: "مواعيد استقبال الملفات:",
+                locationText: "📍 المقر: مقر فوج المستقبل",
+                timeText: "⏰ الأوقات: كل يوم سبت و أحد وإثنين وو ثلاثاء من الساعة 17:00 إلى 19:00",
+                footerText: "© 2026 فوج المستقبل للكشافة الإسلامية الجزائرية بوقيرات - جميع الحقوق محفوظة"
+            },
+            en: {
+                pageTitle: "El-Moustakbal Group - Algerian Muslim Scouts",
+                navBrand: "El-Moustakbal Scouts",
+                navAbout: "About Us",
+                navRegister: "Join Us",
+                navDocs: "Documents",
+                langBtn: "العربية",
+                heroTitle: "Welcome to El-Moustakbal Scout Group",
+                heroSubtitle: "Building tomorrow's leaders through values, action, and leadership",
+                heroBtn: "Register Your Child Now",
+                aboutTitle: "About Our Group",
+                aboutText: "El-Moustakbal Scout Group aims to raise youth according to sound Islamic and scout values through educational activities, summer camps, and workshops aimed at character building and teamwork.",
+                formTitle: "Initial Membership Application Form",
+                scoutInfoHead: "Scout Information (Child/Youth):",
+                lblChildName: "Full Name",
+                lblBirthDate: "Date of Birth (Manual Entry)",
+                lblEducation: "Educational Level",
+                lblHealth: "Health Notes / Allergies (if any)",
+                parentInfoHead: "Parent / Guardian Information:",
+                lblParentName: "Parent Full Name",
+                lblPhone: "Primary Phone Number",
+                lblAddress: "Home Address / District",
+                submitBtn: "Submit Data & Print Form",
+                docsTitle: "Required Documents (Hand Submission)",
+                docsSub: "After submitting the online form, please prepare the following physical documents for in-person submission:",
+                doc1: "✓ Printed online registration form.",
+                doc2: "✓ Recent birth certificate.",
+                doc3: "✓ Passport-size photos (2).",
+                doc4: "✓ Medical certificate proving fitness for physical activity.",
+                doc5: "✓ Signed parent authorization form.",
+                scheduleHead: "Document Submission Schedule:",
+                locationText: "📍 Location: El-Moustakbal Scout Headquarters",
+                timeText: "⏰ Hours: Every Friday & Saturday from 14:00 to 17:00",
+                footerText: "© 2026 El-Moustakbal Scout Group BOUGIRAT - All Rights Reserved"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const langData = translations[currentLang];
+
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = currentLang;
+
+            for (let key in langData) {
+                const el = document.getElementById(key);
+                if (el) {
+                    if (el.tagName === 'INPUT' && el.type === 'submit') {
+                        el.value = langData[key];
+                    } else {
+                        el.innerHTML = langData[key];
+                    }
+                }
+            }
+        }
+
+        document.getElementById('scoutForm').addEventListener('submit', function() {
+            setTimeout(function() {
+                window.print();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
